@@ -1,21 +1,24 @@
-import React from 'react'
-import Wrapper from './wrapper'
-
+import React from "react";
+import Wrapper from "./wrapper";
+import logo from "../assets/logo.svg";
+import { Link } from "react-router-dom";
+import SearchBox from "./SearchBox";
 const Header = () => {
   return (
     <header>
-       <Wrapper>
-            <div className="appHeader">
-                <div className="headerLeft">
-                    <h1>ReactFlix</h1>
-                </div>
-                <div className="searchBox">
-                    <input className='searchField' type="search" />
-                </div>
-            </div>
-       </Wrapper>
+      <Wrapper>
+        <div className="appHeader">
+          <div className="headerLeft">
+            <Link to="/">
+              <img src={logo} alt="" width={85} />
+            </Link>
+            <Link to='/favorates'>Favorates</Link>
+          </div>
+          <SearchBox />
+        </div>
+      </Wrapper>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

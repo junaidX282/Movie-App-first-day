@@ -1,19 +1,18 @@
 import React from 'react'
-
-const MovieCard = ({movie: {title, rating, poster_path}}) => {
+import { Link } from 'react-router-dom'
+import FavoriteButton from './FavoriteButton'
+const MovieCard = ({movie }) => {
     
-    // const {title, rating, poster_path} = movie
+    const {title, vote_average, poster_path, id} = movie
   return (
     <div className="movieCard">
-        <img className='moviePoster' src={poster_path} alt="" />
+       <Link to={`movie/${id}`} > <img className='moviePoster' src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="" /> </Link>
         <div className="movieCardFooter">
             <div className="movieCardDetails">
                 <h2 className="movieCardTitle">{title}</h2>
-                <p className='movieCardRating'>{rating}</p>
+                <p className='movieCardRating'>{vote_average}</p>  //rating
             </div>
-            <div className="favButton">
-                #
-            </div>
+           <FavoriteButton movie= {movie} />
         </div>
     </div>
   )
